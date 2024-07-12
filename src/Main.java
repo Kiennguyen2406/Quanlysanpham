@@ -58,7 +58,7 @@ public class Main {
             if (type.equalsIgnoreCase("G")) {
                 System.out.print("Thời gian bảo hành: ");
                 String warrantyPeriod = scanner.nextLine();
-
+                Validator.validateWarrantyPeriod(warrantyPeriod);
                 System.out.print("Phạm vi bảo hành: ");
                 String warrantyScope = scanner.nextLine();
 

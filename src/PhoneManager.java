@@ -43,16 +43,10 @@ public class PhoneManager {
             for (MobilePhone phone : phones) {
                 if (phone instanceof GenuinePhone) {
                     GenuinePhone genuinePhone = (GenuinePhone) phone;
-                    writer.write(String.format("%s,%s,%.2f,%d,%s,%s,%s\n",
-                            genuinePhone.getID(), genuinePhone.getName(), genuinePhone.getPrice(),
-                            genuinePhone.getQuantity(), genuinePhone.getProducer(),
-                            genuinePhone.getWarrantyPeriod(), genuinePhone.getWarrantyScope()));
+                    writer.write(genuinePhone.toString());
                 } else if (phone instanceof CellPhone) {
                     CellPhone cellPhone = (CellPhone) phone;
-                    writer.write(String.format("%s,%s,%.2f,%d,%s,%s,%s\n",
-                            cellPhone.getID(), cellPhone.getName(), cellPhone.getPrice(),
-                            cellPhone.getQuantity(), cellPhone.getProducer(),
-                            cellPhone.getPortableCountry(), cellPhone.getStatus()));
+                    writer.write(cellPhone.toString());
                 }
             }
         } catch (IOException e) {

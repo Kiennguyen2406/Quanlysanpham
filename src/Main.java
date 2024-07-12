@@ -42,10 +42,12 @@ public class Main {
             System.out.print("Giá tiền: ");
             double price = scanner.nextDouble();
             scanner.nextLine();
+            Validator.validatePrice(price);
 
             System.out.print("Số lượng: ");
             int quantity = scanner.nextInt();
             scanner.nextLine();
+            Validator.validateQuantity(quantity);
 
             System.out.print("Nhà sản xuất: ");
             String producer = scanner.nextLine();
@@ -65,7 +67,7 @@ public class Main {
             } else if (type.equalsIgnoreCase("C")) {
                 System.out.print("Quốc gia sử dụng được: ");
                 String portableCountry = scanner.nextLine();
-
+                Validator.validatePortableCountry(portableCountry);
                 System.out.print("Tình trạng: ");
                 String status = scanner.nextLine();
 
@@ -74,6 +76,8 @@ public class Main {
             } else {
                 System.out.println("Loại điện thoại không hợp lệ!");
             }
+        } catch (InvalidDataException e) {
+            System.out.println("Lỗi khi thêm mới điện thoại: " + e.getMessage());
         } catch (Exception e) {
             System.out.println("Lỗi khi thêm mới điện thoại: " + e.getMessage());
         }

@@ -5,6 +5,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        manager.readFromFile();
         while (true) {
             Menu.showMenu();
             int choice = scanner.nextInt();

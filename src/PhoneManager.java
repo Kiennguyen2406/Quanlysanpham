@@ -12,14 +12,14 @@ public class PhoneManager {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length >= 5) { // Kiểm tra số lượng trường
-                    String id = parts[0];
+
                     String name = parts[1];
                     double price = Double.parseDouble(parts[2]);
                     int quantity = Integer.parseInt(parts[3]);
                     String producer = parts[4];
 
                     MobilePhone phone;
-                    if (parts.length == 7) { // Kiểm tra loại điện thoại
+                    if (parts.length == 7) {
                         String warrantyPeriod = parts[5];
                         String warrantyScope = parts[6];
                         phone = new GenuinePhone( name, price, quantity, producer, warrantyPeriod, warrantyScope);
@@ -42,11 +42,9 @@ public class PhoneManager {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
             for (MobilePhone phone : phones) {
                 if (phone instanceof GenuinePhone) {
-                    GenuinePhone genuinePhone = (GenuinePhone) phone;
-                    writer.write(genuinePhone.toString());
+                    writer.write(phone.toString());
                 } else if (phone instanceof CellPhone) {
-                    CellPhone cellPhone = (CellPhone) phone;
-                    writer.write(cellPhone.toString());
+                    writer.write(phone.toString());
                 }
             }
         } catch (IOException e) {
